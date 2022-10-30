@@ -1,0 +1,158 @@
+.root {
+  flex-direction: column;
+  display: flex;
+  position: relative;
+  width: 480px;
+  height: auto;
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 24px;
+}
+.root > :global(.__wab_flex-container) {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: calc(0px - 16px);
+  height: calc(100% + 16px);
+}
+.root > :global(.__wab_flex-container) > *,
+.root > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.root > :global(.__wab_flex-container) > picture > img,
+.root > :global(.__wab_flex-container) > :global(.__wab_slot) > picture > img {
+  margin-top: 16px;
+}
+.text__qAJy {
+  position: relative;
+  width: auto;
+  height: auto;
+  max-width: 800px;
+  font-weight: 600;
+  font-size: 32px;
+}
+.freeBox__paJNg {
+  position: relative;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  left: auto;
+  top: auto;
+  align-self: flex-start;
+  min-width: 0;
+  display: none;
+  padding: 0px;
+}
+.freeBoxisError__paJNgtSru {
+  display: flex;
+}
+.freeBox__aQpG {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 800px;
+  display: flex;
+  flex-direction: row;
+  min-width: 0;
+}
+.slotTargetErrorMessage {
+  color: #dd4646;
+}
+.emailInput:global(.__wab_instance) {
+  max-width: 100%;
+  position: relative;
+}
+.svg__qrYpm {
+  position: relative;
+  object-fit: cover;
+  width: 1em;
+  height: 1em;
+}
+.svg__nhCz0 {
+  position: relative;
+  object-fit: cover;
+  width: 1em;
+  height: 1em;
+}
+.passwordInput:global(.__wab_instance) {
+  max-width: 100%;
+  position: relative;
+}
+.svg__k1I8P {
+  position: relative;
+  object-fit: cover;
+  width: 1em;
+  height: 1em;
+}
+.svg__pkBm2 {
+  position: relative;
+  object-fit: cover;
+  width: 1em;
+  height: 1em;
+}
+.submitButton:global(.__wab_instance) {
+  max-width: 100%;
+  position: relative;
+  width: 100%;
+  min-width: 0;
+}
+.svg___4LRnu {
+  position: relative;
+  object-fit: cover;
+  width: 1em;
+  height: 1em;
+}
+.svg__qovYh {
+  position: relative;
+  object-fit: cover;
+  width: 1em;
+  height: 1em;
+}
+.svg {
+  position: relative;
+  object-fit: cover;
+  max-width: none;
+  width: 60px;
+  height: 40px;
+  color: var(--token-PW3vDET_R);
+  flex-shrink: 0;
+  display: none;
+}
+.svgisLoading {
+  display: block;
+}
+.freeBox__aTq {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+  padding: 8px;
+}
+.text___8MjqQ {
+  position: relative;
+  width: auto;
+  height: auto;
+  max-width: 800px;
+}
+.button:global(.__wab_instance) {
+  max-width: 100%;
+  position: relative;
+}
+.svg__ef5Mw {
+  position: relative;
+  object-fit: cover;
+  width: 1em;
+  height: 1em;
+}
+.svg___9Wgby {
+  position: relative;
+  object-fit: cover;
+  width: 1em;
+  height: 1em;
+}
