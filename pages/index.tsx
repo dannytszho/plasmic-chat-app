@@ -7,7 +7,6 @@ import { useSession, useSupabaseClient } from "@supabase/auth-helpers-react";
 
 function Homepage() {
   const router = useRouter()
-  const session = useSession()
   const supabase = useSupabaseClient()
 
   return (
@@ -15,18 +14,18 @@ function Homepage() {
       params={useRouter()?.query}
       query={useRouter()?.query}
     >
-      {!session ? (<PlasmicHomepage 
+      <PlasmicHomepage 
         logoutButton={{
           onClick: async() => {
             await supabase.auth.signOut()
             router.replace('/login')
           }
         }}
-      />): 'null'}
+      />
     </ph.PageParamsProvider>
   );
 }
 
-// export const getServerSideProps = withPageAuth({ redirectTo: '/' })
+export const getServerSideProps = withPageAuth({ redirectTo: '/login' })
 
 export default Homepage;
