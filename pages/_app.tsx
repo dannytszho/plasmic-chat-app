@@ -5,6 +5,16 @@ import { useEffect, useState } from 'react';
 import { AppProps } from 'next/app';
 import { Session, SessionContextProvider } from '@supabase/auth-helpers-react';
 import { createBrowserSupabaseClient } from '@supabase/auth-helpers-nextjs';
+import { QueryClientProvider, QueryClient } from 'react-query';
+
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      retry: 0,
+      refetchOnWindowFocus: false
+    }
+  }
+})
 
 function MyApp({ Component, pageProps }: AppProps<{initialSession: Session}>) {
   const [supabaseClient] = useState(() => createBrowserSupabaseClient())
@@ -14,7 +24,9 @@ function MyApp({ Component, pageProps }: AppProps<{initialSession: Session}>) {
         supabaseClient={supabaseClient}
         initialSession={pageProps.initialSession}  
       >
-        <Component {...pageProps} />
+        <QueryClientProvider client={queryClient}>
+          <Component {...pageProps} />
+        </QueryClientProvider>
       </SessionContextProvider>
     </PlasmicRootProvider>
   );

@@ -1,0 +1,129 @@
+.root {
+  flex-direction: column;
+  display: flex;
+  width: 480px;
+  height: auto;
+  max-width: 100%;
+  background: #ffffff;
+  position: relative;
+  border-radius: 10px;
+  padding: 8px;
+}
+.root > :global(.__wab_flex-container) {
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: calc(0px - 16px);
+  height: calc(100% + 16px);
+}
+.root > :global(.__wab_flex-container) > *,
+.root > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.root > :global(.__wab_flex-container) > picture > img,
+.root > :global(.__wab_flex-container) > :global(.__wab_slot) > picture > img {
+  margin-top: 16px;
+}
+.text {
+  position: relative;
+  width: auto;
+  height: auto;
+  max-width: 800px;
+  font-size: 32px;
+  font-weight: 500;
+  color: var(--token-p2_El9pil);
+}
+.uploadAvatar:global(.__wab_instance) {
+  max-width: 100%;
+  position: relative;
+}
+.firstNameInput:global(.__wab_instance) {
+  max-width: 100%;
+  position: relative;
+}
+.svg__pl2Ty {
+  position: relative;
+  object-fit: cover;
+  width: 1em;
+  height: 1em;
+}
+.svg___2Z7Ni {
+  position: relative;
+  object-fit: cover;
+  width: 1em;
+  height: 1em;
+}
+.lastNameInput:global(.__wab_instance) {
+  max-width: 100%;
+  position: relative;
+}
+.svg__t1Xma {
+  position: relative;
+  object-fit: cover;
+  width: 1em;
+  height: 1em;
+}
+.svg__enG69 {
+  position: relative;
+  object-fit: cover;
+  width: 1em;
+  height: 1em;
+}
+.saveProfileButton:global(.__wab_instance) {
+  max-width: 100%;
+  position: relative;
+  width: 100%;
+  min-width: 0;
+}
+.svg__tevvM {
+  position: relative;
+  object-fit: cover;
+  width: 1em;
+  height: 1em;
+}
+.svg__up9Me {
+  position: relative;
+  object-fit: cover;
+  width: 1em;
+  height: 1em;
+}
+.button:global(.__wab_instance) {
+  max-width: 100%;
+  position: relative;
+}
+.svg__s0OlB {
+  position: relative;
+  object-fit: cover;
+  width: 1em;
+  height: 1em;
+}
+.svg__dJabL {
+  position: relative;
+  object-fit: cover;
+  width: 1em;
+  height: 1em;
+}
+.freeBox__wDx6F {
+  position: relative;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+  display: none;
+  padding: 8px;
+}
+.freeBoxisError__wDx6FPxKaD {
+  display: flex;
+}
+.freeBox__oFzQv {
+  position: relative;
+  width: auto;
+  height: auto;
+  max-width: 800px;
+  display: flex;
+  flex-direction: row;
+}
+.slotTargetErrorMessage {
+  color: #e03232;
+}

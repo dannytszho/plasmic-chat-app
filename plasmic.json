@@ -120,6 +120,149 @@
           "scheme": "blackbox",
           "componentType": "component",
           "plumeType": "text-input"
+        },
+        {
+          "id": "3oTZPmOQXw",
+          "name": "Layout",
+          "type": "managed",
+          "projectId": "tuYYL4LS2Mqra35JfVEDDQ",
+          "renderModuleFilePath": "plasmic/chat_app/PlasmicLayout.tsx",
+          "importSpec": {
+            "modulePath": "Layout.tsx"
+          },
+          "cssFilePath": "plasmic/chat_app/PlasmicLayout.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "aUbJMRLkoZ",
+          "name": "SideBar",
+          "type": "managed",
+          "projectId": "tuYYL4LS2Mqra35JfVEDDQ",
+          "renderModuleFilePath": "plasmic/chat_app/PlasmicSideBar.tsx",
+          "importSpec": {
+            "modulePath": "SideBar.tsx"
+          },
+          "cssFilePath": "plasmic/chat_app/PlasmicSideBar.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "1KykzanB-I",
+          "name": "Chat",
+          "type": "managed",
+          "projectId": "tuYYL4LS2Mqra35JfVEDDQ",
+          "renderModuleFilePath": "plasmic/chat_app/PlasmicChat.tsx",
+          "importSpec": {
+            "modulePath": "Chat.tsx"
+          },
+          "cssFilePath": "plasmic/chat_app/PlasmicChat.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "kv2sB2fQdM",
+          "name": "Avatar",
+          "type": "managed",
+          "projectId": "tuYYL4LS2Mqra35JfVEDDQ",
+          "renderModuleFilePath": "plasmic/chat_app/PlasmicAvatar.tsx",
+          "importSpec": {
+            "modulePath": "Avatar.tsx"
+          },
+          "cssFilePath": "plasmic/chat_app/PlasmicAvatar.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "M28hjAiCwM",
+          "name": "ChatListItem",
+          "type": "managed",
+          "projectId": "tuYYL4LS2Mqra35JfVEDDQ",
+          "renderModuleFilePath": "plasmic/chat_app/PlasmicChatListItem.tsx",
+          "importSpec": {
+            "modulePath": "ChatListItem.tsx"
+          },
+          "cssFilePath": "plasmic/chat_app/PlasmicChatListItem.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "csngSC__Aa",
+          "name": "ChatList",
+          "type": "managed",
+          "projectId": "tuYYL4LS2Mqra35JfVEDDQ",
+          "renderModuleFilePath": "plasmic/chat_app/PlasmicChatList.tsx",
+          "importSpec": {
+            "modulePath": "ChatList.tsx"
+          },
+          "cssFilePath": "plasmic/chat_app/PlasmicChatList.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "t8CM_vbY1N",
+          "name": "ChatMessage",
+          "type": "managed",
+          "projectId": "tuYYL4LS2Mqra35JfVEDDQ",
+          "renderModuleFilePath": "plasmic/chat_app/PlasmicChatMessage.tsx",
+          "importSpec": {
+            "modulePath": "ChatMessage.tsx"
+          },
+          "cssFilePath": "plasmic/chat_app/PlasmicChatMessage.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "xAq7uYieV4",
+          "name": "RoomChat",
+          "type": "managed",
+          "projectId": "tuYYL4LS2Mqra35JfVEDDQ",
+          "renderModuleFilePath": "plasmic/chat_app/PlasmicRoomChat.tsx",
+          "importSpec": {
+            "modulePath": "../pages/room/[roomId].tsx"
+          },
+          "cssFilePath": "plasmic/chat_app/PlasmicRoomChat.module.css",
+          "scheme": "blackbox",
+          "componentType": "page"
+        },
+        {
+          "id": "KmtBQD-No4",
+          "name": "Profile",
+          "type": "managed",
+          "projectId": "tuYYL4LS2Mqra35JfVEDDQ",
+          "renderModuleFilePath": "plasmic/chat_app/PlasmicProfile.tsx",
+          "importSpec": {
+            "modulePath": "../pages/profile.tsx"
+          },
+          "cssFilePath": "plasmic/chat_app/PlasmicProfile.module.css",
+          "scheme": "blackbox",
+          "componentType": "page"
+        },
+        {
+          "id": "1SkV-WKjFZ",
+          "name": "UploadAvatar",
+          "type": "managed",
+          "projectId": "tuYYL4LS2Mqra35JfVEDDQ",
+          "renderModuleFilePath": "plasmic/chat_app/PlasmicUploadAvatar.tsx",
+          "importSpec": {
+            "modulePath": "UploadAvatar.tsx"
+          },
+          "cssFilePath": "plasmic/chat_app/PlasmicUploadAvatar.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "-E2Ngdl7gzB",
+          "name": "UserProfile",
+          "type": "managed",
+          "projectId": "tuYYL4LS2Mqra35JfVEDDQ",
+          "renderModuleFilePath": "plasmic/chat_app/PlasmicUserProfile.tsx",
+          "importSpec": {
+            "modulePath": "UserProfile.tsx"
+          },
+          "cssFilePath": "plasmic/chat_app/PlasmicUserProfile.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [
@@ -142,6 +285,21 @@
           "id": "8dFCSNKlq",
           "name": "BeanEater1S200PxsvgIcon",
           "moduleFilePath": "plasmic/chat_app/icons/PlasmicIcon__BeanEater1S200Pxsvg.tsx"
+        },
+        {
+          "id": "BRlNmPiWlJ",
+          "name": "LogOut11S200PxsvgIcon",
+          "moduleFilePath": "plasmic/chat_app/icons/PlasmicIcon__LogOut11S200Pxsvg.tsx"
+        },
+        {
+          "id": "Bz9hufRfV0",
+          "name": "LogoutSvgrepoComsvgIcon",
+          "moduleFilePath": "plasmic/chat_app/icons/PlasmicIcon__LogoutSvgrepoComsvg.tsx"
+        },
+        {
+          "id": "yHFyNPQ13F",
+          "name": "SendSvgrepoComsvgIcon",
+          "moduleFilePath": "plasmic/chat_app/icons/PlasmicIcon__SendSvgrepoComsvg.tsx"
         }
       ],
       "images": [],

@@ -12,5 +12,5 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     data: { user },
   } = await supabaseServerClient.auth.getUser()
 
-  res.status(200).json({ name: user ?? '' })
+  res.status(200).json({ name: user?.user_metadata ?? '' })
 }

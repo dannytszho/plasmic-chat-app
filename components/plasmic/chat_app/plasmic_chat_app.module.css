@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter%3Aital%2Cwght%400%2C400%3B0%2C500%3B0%2C600%3B0%2C700%3B0%2C900&family=Inconsolata%3Aital%2Cwght%400%2C400%3B0%2C500%3B0%2C600%3B0%2C700%3B0%2C900&display=swap");
 
 .plasmic_tokens {
-  --token-PW3vDET_R: #30a46c;
+  --token-PW3vDET_R: #def2d7;
   --plasmic-token-primary: var(--token-PW3vDET_R);
   --token-mqCU_hWO4: #cf45ea;
   --plasmic-token-secondary: var(--token-mqCU_hWO4);
@@ -9,6 +9,8 @@
   --plasmic-token-unnamed-style-token: var(--token-phWBlJ9PK);
   --token-wDXdO3vlZ: #f3f3f3;
   --plasmic-token-background: var(--token-wDXdO3vlZ);
+  --token-p2_El9pil: #535353;
+  --plasmic-token-font: var(--token-p2_El9pil);
 }
 
 .plasmic_default_styles {

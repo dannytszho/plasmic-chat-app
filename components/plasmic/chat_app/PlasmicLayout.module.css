@@ -1,0 +1,20 @@
+.root {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 0;
+  padding: 8px;
+}
+.sideBar:global(.__wab_instance) {
+  position: relative;
+  flex-shrink: 0;
+}
+.chat___4Ab5P:global(.__wab_instance) {
+  position: relative;
+}

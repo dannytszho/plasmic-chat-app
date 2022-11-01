@@ -14,14 +14,7 @@ function Homepage() {
       params={useRouter()?.query}
       query={useRouter()?.query}
     >
-      <PlasmicHomepage 
-        logoutButton={{
-          onClick: async() => {
-            await supabase.auth.signOut()
-            router.replace('/login')
-          }
-        }}
-      />
+      <PlasmicHomepage />
     </ph.PageParamsProvider>
   );
 }

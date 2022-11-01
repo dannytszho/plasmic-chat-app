@@ -21,9 +21,19 @@
       }
     },
     {
+      "name": "font",
+      "type": "color",
+      "value": "#535353",
+      "category": "color",
+      "meta": {
+        "projectId": "tuYYL4LS2Mqra35JfVEDDQ",
+        "id": "p2_El9pil"
+      }
+    },
+    {
       "name": "primary",
       "type": "color",
-      "value": "#30A46C",
+      "value": "#DEF2D7",
       "category": "color",
       "meta": {
         "projectId": "tuYYL4LS2Mqra35JfVEDDQ",
