@@ -14,7 +14,7 @@ export interface ChatProps extends DefaultChatProps {}
 const supabaseClient = createBrowserSupabaseClient()
 
 function Chat_({user, roomId, ...props}: any, ref: HTMLElementRefOf<"div">) {
-  const scrollRef = React.useRef()
+  const scrollRef = React.useRef<HTMLSpanElement>(null)
   const [newMessage, setNewMessage] = React.useState("")
 
   const {data: roomDetails} = useGetChatRoomDetails(roomId)
@@ -22,19 +22,22 @@ function Chat_({user, roomId, ...props}: any, ref: HTMLElementRefOf<"div">) {
   const createNewMessageMutation = useCreateNewMessage(roomId)
 
   useEffect(() => {
-    const channel = supabaseClient.channel('messages').on("postgres_changes", {event: 'INSERT', schema: 'public', table: 'messages'}, (payload) => {
-      fetchMessages()
-    }).subscribe()
-
-    return () => supabaseClient.removeChannel(channel)
+    async function getSubscription() {
+      const channel = supabaseClient.channel('messages').on("postgres_changes", {event: 'INSERT', schema: 'public', table: 'messages'}, (payload) => {
+        console.log(payload)
+      }).subscribe()
+      
+      return () => supabaseClient.removeChannel(channel)
+    }
+    getSubscription()
   },[])
 
   useEffect(() => {
     if(!scrollRef.current) return
 
     setTimeout(() => {
-      scrollRef.current.scrollIntoView({behavior: "smooth"})
-    }, 3000)
+      scrollRef.current?.scrollIntoView({behavior: "smooth"})
+    }, 2000)
   },[chatMessages?.length])
 
   async function createNewMessage() {
