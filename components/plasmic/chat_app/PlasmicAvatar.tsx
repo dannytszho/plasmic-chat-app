@@ -130,6 +130,9 @@ function PlasmicAvatar__RenderFunc(props: {
             alt={""}
             className={classNames(sty.img, {
               [sty.imgisEmpty]: hasVariant(variants, "isEmpty", "isEmpty"),
+              [sty.imgisEmpty_size__45]:
+                hasVariant(variants, "isEmpty", "isEmpty") &&
+                hasVariant(variants, "size", "_45"),
               [sty.imgsize__45]: hasVariant(variants, "size", "_45"),
               [sty.imgsize__60]: hasVariant(variants, "size", "_60")
             })}
@@ -172,7 +175,10 @@ function PlasmicAvatar__RenderFunc(props: {
             data-plasmic-name={"freeBox"}
             data-plasmic-override={overrides.freeBox}
             className={classNames(projectcss.all, sty.freeBox, {
-              [sty.freeBoxisEmpty]: hasVariant(variants, "isEmpty", "isEmpty")
+              [sty.freeBoxisEmpty]: hasVariant(variants, "isEmpty", "isEmpty"),
+              [sty.freeBoxisEmpty_size__45]:
+                hasVariant(variants, "isEmpty", "isEmpty") &&
+                hasVariant(variants, "size", "_45")
             })}
           >
             {p.renderPlasmicSlot({

@@ -4,25 +4,20 @@ import {
   DefaultUserProfileProps
 } from "./plasmic/chat_app/PlasmicUserProfile";
 import { HTMLElementRefOf } from "@plasmicapp/react-web";
-import { useUser } from "@supabase/auth-helpers-react";
 import { useEffect } from "react";
 import { useGetUserData, useUpdateUserData } from "../lib/supbase/user";
 import { useRouter } from "next/router";
-
+import { useUser } from "@supabase/auth-helpers-react";
 
 export interface UserProfileProps extends DefaultUserProfileProps {}
 
-function UserProfile_(props: UserProfileProps, ref: HTMLElementRefOf<"div">) {
-
+function UserProfile_({user, props}: any, ref: HTMLElementRefOf<"div">) {
   const router = useRouter()
 
   const [firstName, setFirstName] = React.useState("")
   const [lastName, setLastName] = React.useState("")
-  const user = useUser()
 
-  console.log(firstName)
-
-  const {data: userData, isLoading: userDataIsLoading} = useGetUserData(user?.id)
+  const {data: userData, isLoading: userDataIsLoading} = useGetUserData(user.id)
 
   const updateUserDataMutation = useUpdateUserData()
 

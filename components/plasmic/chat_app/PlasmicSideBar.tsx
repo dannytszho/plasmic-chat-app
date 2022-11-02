@@ -54,9 +54,13 @@ export const PlasmicSideBar__VariantProps = new Array<VariantPropType>();
 
 export type PlasmicSideBar__ArgsType = {
   username?: React.ReactNode;
+  user?: any;
 };
 type ArgPropType = keyof PlasmicSideBar__ArgsType;
-export const PlasmicSideBar__ArgProps = new Array<ArgPropType>("username");
+export const PlasmicSideBar__ArgProps = new Array<ArgPropType>(
+  "username",
+  "user"
+);
 
 export type PlasmicSideBar__OverridesType = {
   root?: p.Flex<"div">;
@@ -72,6 +76,7 @@ export type PlasmicSideBar__OverridesType = {
 
 export interface DefaultSideBarProps {
   username?: React.ReactNode;
+  user?: any;
   className?: string;
 }
 

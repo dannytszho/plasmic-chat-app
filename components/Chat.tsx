@@ -13,14 +13,13 @@ export interface ChatProps extends DefaultChatProps {}
 
 const supabaseClient = createBrowserSupabaseClient()
 
-function Chat_({roomId, ...props}: any, ref: HTMLElementRefOf<"div">) {
+function Chat_({user, roomId, ...props}: any, ref: HTMLElementRefOf<"div">) {
   const scrollRef = React.useRef()
   const [newMessage, setNewMessage] = React.useState("")
 
   const {data: roomDetails} = useGetChatRoomDetails(roomId)
   const {data: chatMessages, isLoading: chatMessagesIsLoading, refetch: fetchMessages} = useGetChatMessages(roomId)
   const createNewMessageMutation = useCreateNewMessage(roomId)
-  const user = useUser()
 
   useEffect(() => {
     const channel = supabaseClient.channel('messages').on("postgres_changes", {event: 'INSERT', schema: 'public', table: 'messages'}, (payload) => {
@@ -79,7 +78,7 @@ function Chat_({roomId, ...props}: any, ref: HTMLElementRefOf<"div">) {
                       isEmpty: !message?.avatar_url,
                       imageUrl: message?.avatar_url
                   }}
-                  isSent={Boolean(user?.id === message.sender_id)}
+                  isSent={Boolean(user.id === message.sender_id)}
                 />
               ))
             }

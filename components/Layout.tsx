@@ -38,7 +38,11 @@ function Layout_(props: LayoutProps, ref: HTMLElementRefOf<"div">) {
   // By default, we are just piping all LayoutProps here, but feel free
   // to do whatever works for you.
 
-  return <PlasmicLayout root={{ ref }} {...props} />;
+  return (
+    <PlasmicLayout
+      root={{ ref }}
+      {...props}
+    />);
 }
 
 const Layout = React.forwardRef(Layout_);

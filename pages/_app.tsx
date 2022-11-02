@@ -3,7 +3,7 @@ import { PlasmicRootProvider } from "@plasmicapp/react-web";
 import Head from "next/head";
 import { useEffect, useState } from 'react';
 import { AppProps } from 'next/app';
-import { Session, SessionContextProvider } from '@supabase/auth-helpers-react';
+import { Session, SessionContextProvider, useUser } from '@supabase/auth-helpers-react';
 import { createBrowserSupabaseClient } from '@supabase/auth-helpers-nextjs';
 import { QueryClientProvider, QueryClient } from 'react-query';
 

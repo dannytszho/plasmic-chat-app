@@ -4,55 +4,33 @@ import {
   DefaultSideBarProps
 } from "./plasmic/chat_app/PlasmicSideBar";
 import { HTMLElementRefOf } from "@plasmicapp/react-web";
-import { useSupabaseClient, useUser } from "@supabase/auth-helpers-react";
-import { useEffect } from "react";
-import { useMutation, useQueryClient } from "react-query";
+import { useSupabaseClient } from "@supabase/auth-helpers-react";
 import { useCreateChatRoom } from "../lib/supbase/chatRoom";
-import router from "next/router";
+import { useRouter } from "next/router";
+import { useGetUserData } from "../lib/supbase/user";
 
 export interface SideBarProps extends DefaultSideBarProps {}
 
-function SideBar_(props: SideBarProps, ref: HTMLElementRefOf<"div">) {
-
-  const [data, setData] = React.useState()
-  const [firstName, setFirstName] = React.useState("")
-  const [lastName, setLastName] = React.useState("")
+function SideBar_({user, ...props}: any, ref: HTMLElementRefOf<"div">) {
   const supabaseClient = useSupabaseClient()
-  const user = useUser()
   const createChatRoomMutation = useCreateChatRoom()
+  const router = useRouter()
 
-  useEffect(() => {
-    async function getUserData(userId: string) {
-      try {
-        const {data: userData} = await supabaseClient.from('profiles').select('*').eq("id", userId).single()    
-        setData(userData)
-        setFirstName(userData.first_name)
-        setLastName(userData.last_name)
-      } catch (err) {
-        console.log(err)
-      }
-    }
-    if(user) {
-      getUserData(user.id)
-    }
-  },[user, supabaseClient])
+  const {data: userData} = useGetUserData(user?.id)
 
-
-  
-  
   return (
     <PlasmicSideBar
       root={{ ref }}
       {...props}
       username={(
-        data?.first_name ? (
-          `${firstName || ''} ${lastName|| ''}`
+        userData?.first_name ? (
+          `${userData?.first_name || ''} ${userData?.last_name|| ''}`
           ): user?.email
       )}
       userAvatar={{
-        prefixText: firstName[0] || user?.email[0].toUpperCase(),
-        isEmpty: !data?.avatar_url,
-        imageUrl: data?.avatar_url,
+        prefixText: userData?.first_name[0] || user?.email[0].toUpperCase(),
+        isEmpty: !userData?.avatar_url,
+        imageUrl: userData?.avatar_url,
         onClick: () => {
           router.push("/profile")
         }

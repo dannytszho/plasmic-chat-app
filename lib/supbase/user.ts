@@ -10,14 +10,14 @@ interface UserProps {
 
 const supabaseClient = createBrowserSupabaseClient()
 
-async function getUserData(userId: string) {
+async function getUserData(userId: any) {
     const {data, error} = await supabaseClient.from('profiles').select('*').eq("id", userId).single()
     if(error) {
         throw error
     }
     return data
 }
-export const useGetUserData = (userId: string) => {
+export const useGetUserData = (userId: any) => {
     return useQuery(
         `user-data-${userId}`,
         () => getUserData(userId),

@@ -7,6 +7,7 @@ import { HTMLElementRefOf } from "@plasmicapp/react-web";
 import { AuthError } from "@supabase/supabase-js";
 import { useRouter } from "next/router";
 import { createBrowserSupabaseClient } from "@supabase/auth-helpers-nextjs";
+import { useEffect } from "react";
 
 export interface AuthComponentProps extends DefaultAuthComponentProps {}
 function AuthComponent_(
@@ -37,7 +38,7 @@ function AuthComponent_(
         return
       }
 
-      router.replace('/')
+      router.push('/')
     } catch (err: any) {
       setAuthError(err)
     } finally {
