@@ -99,12 +99,14 @@ function PlasmicChatListItem__RenderFunc(props: {
         sty.root
       )}
     >
-      <Avatar
-        data-plasmic-name={"avatar"}
-        data-plasmic-override={overrides.avatar}
-        className={classNames("__wab_instance", sty.avatar)}
-        size={"_60" as const}
-      />
+      {true ? (
+        <Avatar
+          data-plasmic-name={"avatar"}
+          data-plasmic-override={overrides.avatar}
+          className={classNames("__wab_instance", sty.avatar)}
+          size={"_60" as const}
+        />
+      ) : null}
 
       <div
         data-plasmic-name={"freeBox"}

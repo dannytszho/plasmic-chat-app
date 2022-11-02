@@ -67,6 +67,7 @@ export const PlasmicChatMessage__ArgProps = new Array<ArgPropType>(
 export type PlasmicChatMessage__OverridesType = {
   root?: p.Flex<"div">;
   avatar?: p.Flex<typeof Avatar>;
+  text?: p.Flex<"div">;
   chatWrapper?: p.Flex<"div">;
 };
 
@@ -116,12 +117,29 @@ function PlasmicChatMessage__RenderFunc(props: {
           { [sty.rootisSent]: hasVariant(variants, "isSent", "isSent") }
         )}
       >
-        <Avatar
-          data-plasmic-name={"avatar"}
-          data-plasmic-override={overrides.avatar}
-          className={classNames("__wab_instance", sty.avatar)}
-          size={"_45" as const}
-        />
+        {true ? (
+          <Avatar
+            data-plasmic-name={"avatar"}
+            data-plasmic-override={overrides.avatar}
+            className={classNames("__wab_instance", sty.avatar)}
+            prefixText={
+              true ? (
+                <div
+                  data-plasmic-name={"text"}
+                  data-plasmic-override={overrides.text}
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text
+                  )}
+                >
+                  {"A"}
+                </div>
+              ) : null
+            }
+            size={"_45" as const}
+          />
+        ) : null}
 
         <p.Stack
           as={"div"}
@@ -176,8 +194,9 @@ function PlasmicChatMessage__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "avatar", "chatWrapper"],
-  avatar: ["avatar"],
+  root: ["root", "avatar", "text", "chatWrapper"],
+  avatar: ["avatar", "text"],
+  text: ["text"],
   chatWrapper: ["chatWrapper"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -186,6 +205,7 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   avatar: typeof Avatar;
+  text: "div";
   chatWrapper: "div";
 };
 
@@ -251,6 +271,7 @@ export const PlasmicChatMessage = Object.assign(
   {
     // Helper components rendering sub-elements
     avatar: makeNodeComponent("avatar"),
+    text: makeNodeComponent("text"),
     chatWrapper: makeNodeComponent("chatWrapper"),
 
     // Metadata about props expected for PlasmicChatMessage

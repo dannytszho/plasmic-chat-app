@@ -525,10 +525,10 @@
   dependencies:
     window-or-global "^1.0.1"
 
-"@plasmicapp/react-web@^0.2.115":
-  version "0.2.115"
-  resolved "https://registry.yarnpkg.com/@plasmicapp/react-web/-/react-web-0.2.115.tgz#73c4d11c676ef634581b4014044a14e9b8c52b2e"
-  integrity sha512-hXAfAzQi/CNbQfxCaw8Vg8w4Oe7QJoZFmwuHY9BNbxCWmFY+yzM5k2D8S70f8AZeck/QLltOYvQdbpw5BTys4A==
+"@plasmicapp/react-web@^0.2.117":
+  version "0.2.117"
+  resolved "https://registry.yarnpkg.com/@plasmicapp/react-web/-/react-web-0.2.117.tgz#8a68e25e4471cd48d84e67088e5b9ea5e3a98366"
+  integrity sha512-cLrv0iWp7bDcI5Sa0VETSQK5byn3f06/L7VO3Ltz+txiQd5I9nN1/Hyo6ajEL8N07ez2JA3VpqyNwAEMAKQWkA==
   dependencies:
     "@plasmicapp/data-sources-context" "0.1.2"
     "@react-aria/checkbox" "^3.5.0"

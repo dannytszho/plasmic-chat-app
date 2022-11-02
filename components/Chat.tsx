@@ -78,8 +78,8 @@ function Chat_({user, roomId, ...props}: any, ref: HTMLElementRefOf<"div">) {
                     prefixText: (
                       message?.first_name && message?.first_name[0] || message?.sender_email[0].toUpperCase()
                       ),
-                      isEmpty: !message?.avatar_url,
-                      imageUrl: message?.avatar_url
+                    isEmpty: !message?.avatar_url,
+                    imageUrl: message?.avatar_url
                   }}
                   isSent={Boolean(user.id === message.sender_id)}
                 />

@@ -22,7 +22,7 @@ import { HTMLElementRefOf } from "@plasmicapp/react-web";
 // total control over the props for your component.
 export interface ChatMessageProps extends DefaultChatMessageProps {}
 
-function ChatMessage_(props: ChatMessageProps, ref: HTMLElementRefOf<"div">) {
+function ChatMessage_(props: any, ref: HTMLElementRefOf<"div">) {
   // Use PlasmicChatMessage to render this component as it was
   // designed in Plasmic, by activating the appropriate variants,
   // attaching the appropriate event handlers, etc.  You

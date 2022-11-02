@@ -22,7 +22,7 @@ import { HTMLElementRefOf } from "@plasmicapp/react-web";
 // total control over the props for your component.
 export interface ChatListItemProps extends DefaultChatListItemProps {}
 
-function ChatListItem_(props: ChatListItemProps, ref: HTMLElementRefOf<"div">) {
+function ChatListItem_(props: any, ref: HTMLElementRefOf<"div">) {
   // Use PlasmicChatListItem to render this component as it was
   // designed in Plasmic, by activating the appropriate variants,
   // attaching the appropriate event handlers, etc.  You
