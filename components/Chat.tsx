@@ -18,13 +18,13 @@ function Chat_({user, roomId, ...props}: any, ref: HTMLElementRefOf<"div">) {
   const [newMessage, setNewMessage] = React.useState("")
 
   const {data: roomDetails} = useGetChatRoomDetails(roomId)
-  const {data: chatMessages, isLoading: chatMessagesIsLoading, refetch: fetchMessages} = useGetChatMessages(roomId)
+  const {data: chatMessages, isLoading: messagesIsLoading, refetch: fetchMessages} = useGetChatMessages(roomId)
   const createNewMessageMutation = useCreateNewMessage(roomId)
 
   useEffect(() => {
     async function getSubscription() {
       const channel = supabaseClient.channel('messages').on("postgres_changes", {event: 'INSERT', schema: 'public', table: 'messages'}, (payload) => {
-        console.log(payload)
+        fetchMessages()
       }).subscribe()
       
       return () => supabaseClient.removeChannel(channel)
@@ -38,7 +38,7 @@ function Chat_({user, roomId, ...props}: any, ref: HTMLElementRefOf<"div">) {
     setTimeout(() => {
       scrollRef.current?.scrollIntoView({behavior: "smooth"})
     }, 2000)
-  },[chatMessages?.length])
+  },[chatMessages?.length, messagesIsLoading])
 
   async function createNewMessage() {
     if(newMessage?.length <= 0) return
@@ -61,7 +61,7 @@ function Chat_({user, roomId, ...props}: any, ref: HTMLElementRefOf<"div">) {
       }}
       roomName={roomDetails?.room_name}
       body={{
-        wrapChildren: (children) => {
+        wrapChildren: (children: any) => {
           return (
           <React.Fragment>
             {
