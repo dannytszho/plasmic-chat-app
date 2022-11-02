@@ -24,3 +24,21 @@ a {
     background: black;
   }
 }
+
+::-webkit-scrollbar {
+	width: 5px;
+	height: 5px;
+	border-radius: 25px;
+	position: absolute;
+	z-index: -1;
+}
+
+::-webkit-scrollbar-track {
+	background: #fff;
+}
+
+::-webkit-scrollbar-thumb {
+	background: #ccc;
+	position: absolute;
+	z-index: -1;
+}

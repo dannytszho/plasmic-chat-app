@@ -80,6 +80,8 @@ function PlasmicChatListItem__RenderFunc(props: {
     ...variants
   };
 
+  const currentUser = p.useCurrentUser?.() || {};
+
   return (
     <p.Stack
       as={"div"}

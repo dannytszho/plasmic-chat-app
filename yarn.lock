@@ -1014,10 +1014,22 @@
   resolved "https://registry.yarnpkg.com/@supabase/auth-helpers-react/-/auth-helpers-react-0.3.1.tgz#815493a294662c56b83c7dd51692dacd24329342"
   integrity sha512-g3SFv08Dz9FapNif/ZY1b7qKGlMJDyTLSayHBz3kb3FuYxg7aLWgQtydDhm5AGbc0XtvpIBuhGTIOVevwpdosA==
 
+"@supabase/auth-helpers-remix@^0.1.2":
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/@supabase/auth-helpers-remix/-/auth-helpers-remix-0.1.2.tgz#82ca0040428430c0ab3059845a365730f33798a1"
+  integrity sha512-CpFsuU7rmMPaTuKFw0hcsjJWjq3nCLhXJ+85/WWI9XqbtXywoeWsABOIFKyE4NbbtBgDi4kkoWYqsIgTYjgC6Q==
+  dependencies:
+    "@supabase/auth-helpers-shared" "0.2.2"
+
 "@supabase/auth-helpers-shared@0.2.1":
   version "0.2.1"
   resolved "https://registry.yarnpkg.com/@supabase/auth-helpers-shared/-/auth-helpers-shared-0.2.1.tgz#920666e5dc2d8473a7e4e3500f9f6ddb1c322465"
   integrity sha512-L54gCCD8xCV6mHta0vE7CLxJ7pisSlsd9KIWB1ENyfZ0baeU9H39AqNVyYcAoHBPrUaZYx877J4WYYoqwuyi+w==
+
+"@supabase/auth-helpers-shared@0.2.2":
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/@supabase/auth-helpers-shared/-/auth-helpers-shared-0.2.2.tgz#b004b3c95421da1971f7b5d6d5908b16aba164d3"
+  integrity sha512-p/8Suuw8IaKNDak0ZtO4jrKqEzRgTWevHcoL4WEoIKgGG4a2PPMhLsDTaZmfHMBJMIoyFIz4rZt9zkjMvpt7cw==
 
 "@supabase/functions-js@^2.0.0":
   version "2.0.0"
@@ -3024,7 +3036,7 @@ minimist@^1.2.0, minimist@^1.2.6:
   resolved "https://registry.yarnpkg.com/minimist/-/minimist-1.2.7.tgz#daa1c4d91f507390437c6a8bc01078e7000c4d18"
   integrity sha512-bzfL1YUZsP41gmu/qjrEk0Q6i2ix/cVeAhbCbqH9u3zYutS1cLg00qhrD0M2MVdCcx4Sc0UpP2eBWo9rotpq6g==
 
-moment@^2.27.0:
+moment@^2.27.0, moment@^2.29.4:
   version "2.29.4"
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.29.4.tgz#3dbe052889fe7c1b2ed966fcb3a77328964ef108"
   integrity sha512-5LC9SOxjSc2HF6vO2CyuTDNivEdoz2IvyJJGj6X8DJ0eFyfszE0QiEd+iXmBvUP3WHxSjFH/vIsA0EN00cgr8w==

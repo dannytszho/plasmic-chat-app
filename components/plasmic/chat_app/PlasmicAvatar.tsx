@@ -95,6 +95,8 @@ function PlasmicAvatar__RenderFunc(props: {
     ...variants
   };
 
+  const currentUser = p.useCurrentUser?.() || {};
+
   return (
     (hasVariant(variants, "isEmpty", "isEmpty") ? true : true) ? (
       <div

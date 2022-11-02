@@ -52,15 +52,17 @@ export type PlasmicChat__VariantsArgs = {};
 type VariantPropType = keyof PlasmicChat__VariantsArgs;
 export const PlasmicChat__VariantProps = new Array<VariantPropType>();
 
-export type PlasmicChat__ArgsType = {};
+export type PlasmicChat__ArgsType = {
+  roomName?: React.ReactNode;
+};
 type ArgPropType = keyof PlasmicChat__ArgsType;
-export const PlasmicChat__ArgProps = new Array<ArgPropType>();
+export const PlasmicChat__ArgProps = new Array<ArgPropType>("roomName");
 
 export type PlasmicChat__OverridesType = {
   root?: p.Flex<"div">;
   header?: p.Flex<"div">;
   roomAvatar?: p.Flex<typeof Avatar>;
-  text?: p.Flex<"div">;
+  freeBox?: p.Flex<"div">;
   body?: p.Flex<"div">;
   footer?: p.Flex<"div">;
   messageTextInput?: p.Flex<typeof TextInput>;
@@ -68,6 +70,7 @@ export type PlasmicChat__OverridesType = {
 };
 
 export interface DefaultChatProps {
+  roomName?: React.ReactNode;
   className?: string;
 }
 
@@ -87,6 +90,8 @@ function PlasmicChat__RenderFunc(props: {
     ...args,
     ...variants
   };
+
+  const currentUser = p.useCurrentUser?.() || {};
 
   return (
     <div
@@ -118,15 +123,15 @@ function PlasmicChat__RenderFunc(props: {
         />
 
         <div
-          data-plasmic-name={"text"}
-          data-plasmic-override={overrides.text}
-          className={classNames(
-            projectcss.all,
-            projectcss.__wab_text,
-            sty.text
-          )}
+          data-plasmic-name={"freeBox"}
+          data-plasmic-override={overrides.freeBox}
+          className={classNames(projectcss.all, sty.freeBox)}
         >
-          {"Enter some text"}
+          {p.renderPlasmicSlot({
+            defaultContents: "Enter some text",
+            value: args.roomName,
+            className: classNames(sty.slotTargetRoomName)
+          })}
         </div>
       </p.Stack>
 
@@ -193,15 +198,15 @@ const PlasmicDescendants = {
     "root",
     "header",
     "roomAvatar",
-    "text",
+    "freeBox",
     "body",
     "footer",
     "messageTextInput",
     "sendIcon"
   ],
-  header: ["header", "roomAvatar", "text"],
+  header: ["header", "roomAvatar", "freeBox"],
   roomAvatar: ["roomAvatar"],
-  text: ["text"],
+  freeBox: ["freeBox"],
   body: ["body"],
   footer: ["footer", "messageTextInput", "sendIcon"],
   messageTextInput: ["messageTextInput"],
@@ -214,7 +219,7 @@ type NodeDefaultElementType = {
   root: "div";
   header: "div";
   roomAvatar: typeof Avatar;
-  text: "div";
+  freeBox: "div";
   body: "div";
   footer: "div";
   messageTextInput: typeof TextInput;
@@ -284,7 +289,7 @@ export const PlasmicChat = Object.assign(
     // Helper components rendering sub-elements
     header: makeNodeComponent("header"),
     roomAvatar: makeNodeComponent("roomAvatar"),
-    text: makeNodeComponent("text"),
+    freeBox: makeNodeComponent("freeBox"),
     body: makeNodeComponent("body"),
     footer: makeNodeComponent("footer"),
     messageTextInput: makeNodeComponent("messageTextInput"),

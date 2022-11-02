@@ -19,6 +19,33 @@ function AuthComponent_(
   const [authError, setAuthError] = React.useState<AuthError | null>(null)
   const [loading, setLoading] = React.useState(false)
   const [supabaseClient] = React.useState(() => createBrowserSupabaseClient())
+
+  const handleLogIn = async() => {
+    setLoading(true)
+    setAuthError(null)
+    try {
+
+      
+      let authFunction = null
+      if(props.isSignUpFlow) {
+        authFunction = await supabaseClient.auth.signUp({email, password})
+      } else {
+        authFunction = await supabaseClient.auth.signInWithPassword({email, password})
+      }
+      
+      const {error} = authFunction
+      if(error) {
+        setAuthError(error)
+        return
+      }
+
+      router.replace('/')
+    } catch (err: any) {
+      setAuthError(err)
+    } finally {
+      setLoading(false)
+    }
+  }
   
   return (
     <PlasmicAuthComponent 
@@ -29,39 +56,25 @@ function AuthComponent_(
       isLoading={loading}
       emailInput={{
         value: email,
-        onChange: (e) => setEmail(e.target.value)
+        onChange: (e) => setEmail(e.target.value),
+        onKeyDown: async(e) => {
+          if(e.key === 'Enter') {
+            await handleLogIn()
+          }
+        }
       }}
       passwordInput={{
         value: password,
-        onChange: (e) => setPassword(e.target.value)
+        onChange: (e) => setPassword(e.target.value),
+        onKeyDown: async(e) => {
+          if(e.key === 'Enter') {
+            await handleLogIn()
+          }
+        }
       }}
       submitButton={{
         onClick: async() => {
-          setLoading(true)
-          setAuthError(null)
-          try {
-
-            
-            let authFunction = null
-            if(props.isSignUpFlow) {
-              authFunction = await supabaseClient.auth.signUp({email, password})
-            } else {
-              authFunction = await supabaseClient.auth.signInWithPassword({email, password})
-            }
-            
-            const {error} = authFunction
-            if(error) {
-              setAuthError(error)
-              return
-            }
-
-            router.replace('/')
-          } catch (err: any) {
-            setAuthError(err)
-          } finally {
-            setLoading(false)
-          }
-            
+          await handleLogIn()
         }
       }}
     />

@@ -22,15 +22,46 @@
 .root > :global(.__wab_flex-container) > :global(.__wab_slot) > picture > img {
   margin-top: 8px;
 }
-.chatListItem__jc0M:global(.__wab_instance) {
+.svg {
   position: relative;
+  object-fit: cover;
+  max-width: 100%;
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  display: none;
 }
-.chatListItem__wl7M:global(.__wab_instance) {
-  position: relative;
+.svgisLoading {
+  display: block;
 }
-.chatListItem__xMFd6:global(.__wab_instance) {
+.chatListWrapper {
+  flex-direction: column;
+  display: flex;
   position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+  padding: 0px;
 }
-.chatListItem__hk7Mv:global(.__wab_instance) {
-  position: relative;
+.chatListWrapper > :global(.__wab_flex-container) {
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  min-width: 0;
+  margin-top: calc(0px - 8px);
+  height: calc(100% + 8px);
+}
+.chatListWrapper > :global(.__wab_flex-container) > *,
+.chatListWrapper > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.chatListWrapper > :global(.__wab_flex-container) > picture > img,
+.chatListWrapper
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-top: 8px;
+}
+.chatListWrapperisLoading {
+  display: none;
 }

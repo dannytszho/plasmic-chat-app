@@ -44,11 +44,15 @@
   max-width: 100%;
   position: relative;
 }
-.text {
+.freeBox {
   position: relative;
   width: auto;
   height: auto;
   max-width: 800px;
+  display: flex;
+  flex-direction: row;
+}
+.slotTargetRoomName {
   font-size: 16px;
   font-weight: 600;
   color: var(--token-p2_El9pil);

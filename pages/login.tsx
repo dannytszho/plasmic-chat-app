@@ -3,7 +3,6 @@ import * as React from "react";
 import * as ph from "@plasmicapp/host";
 import { PlasmicLogin } from "../components/plasmic/chat_app/PlasmicLogin";
 import { useRouter } from "next/router";
-import { withPageAuth } from "@supabase/auth-helpers-nextjs";
 
 function Login() {
   return (

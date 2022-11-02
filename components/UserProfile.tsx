@@ -6,7 +6,6 @@ import {
 import { HTMLElementRefOf } from "@plasmicapp/react-web";
 import { useSupabaseClient, useUser } from "@supabase/auth-helpers-react";
 import { useEffect } from "react";
-import { withPageAuth } from "@supabase/auth-helpers-nextjs";
 
 
 export interface UserProfileProps extends DefaultUserProfileProps {}
@@ -42,15 +41,15 @@ function UserProfile_(props: UserProfileProps, ref: HTMLElementRefOf<"div">) {
  
   
 
-  async function updateProfile({avatar_url, firstName, lastName}: any) {
+  async function updateProfile({avatar_url, first_name, last_name}: any) {
     try {
       setLoading(true)
       if (!user) throw new Error('No user')
   
       const updates = {
         id: user.id,
-        firstName,
-        lastName,
+        first_name,
+        last_name,
         avatar_url,
         updated_at: new Date().toISOString(),
       }
@@ -83,6 +82,12 @@ function UserProfile_(props: UserProfileProps, ref: HTMLElementRefOf<"div">) {
       lastNameInput={{
         value: lastName,
         onChange: (e) => setLastName(e.target.value)
+      }}
+      saveProfileButton={{
+        onClick: async() => {
+          console.log("Save profile")
+          await updateProfile({ first_name: firstName, last_name: lastName })
+        }
       }}
     />
   );

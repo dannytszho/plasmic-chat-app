@@ -41,10 +41,18 @@ import "@plasmicapp/react-web/lib/plasmic.css";
 import projectcss from "./plasmic_chat_app.module.css"; // plasmic-import: tuYYL4LS2Mqra35JfVEDDQ/projectcss
 import sty from "./PlasmicChatList.module.css"; // plasmic-import: csngSC__Aa/css
 
-export type PlasmicChatList__VariantMembers = {};
-export type PlasmicChatList__VariantsArgs = {};
+import BeanEater1S200PxsvgIcon from "./icons/PlasmicIcon__BeanEater1S200Pxsvg"; // plasmic-import: 8dFCSNKlq/icon
+
+export type PlasmicChatList__VariantMembers = {
+  isLoading: "isLoading";
+};
+export type PlasmicChatList__VariantsArgs = {
+  isLoading?: SingleBooleanChoiceArg<"isLoading">;
+};
 type VariantPropType = keyof PlasmicChatList__VariantsArgs;
-export const PlasmicChatList__VariantProps = new Array<VariantPropType>();
+export const PlasmicChatList__VariantProps = new Array<VariantPropType>(
+  "isLoading"
+);
 
 export type PlasmicChatList__ArgsType = {};
 type ArgPropType = keyof PlasmicChatList__ArgsType;
@@ -52,9 +60,13 @@ export const PlasmicChatList__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicChatList__OverridesType = {
   root?: p.Flex<"div">;
+  svg?: p.Flex<"svg">;
+  chatListWrapper?: p.Flex<"div">;
+  chatListItem?: p.Flex<typeof ChatListItem>;
 };
 
 export interface DefaultChatListProps {
+  isLoading?: SingleBooleanChoiceArg<"isLoading">;
   className?: string;
 }
 
@@ -75,6 +87,8 @@ function PlasmicChatList__RenderFunc(props: {
     ...variants
   };
 
+  const currentUser = p.useCurrentUser?.() || {};
+
   return (
     <p.Stack
       as={"div"}
@@ -89,36 +103,59 @@ function PlasmicChatList__RenderFunc(props: {
         projectcss.plasmic_default_styles,
         projectcss.plasmic_mixins,
         projectcss.plasmic_tokens,
-        sty.root
+        sty.root,
+        { [sty.rootisLoading]: hasVariant(variants, "isLoading", "isLoading") }
       )}
     >
-      <ChatListItem
-        className={classNames("__wab_instance", sty.chatListItem__jc0M)}
-      />
-
-      <ChatListItem
-        className={classNames("__wab_instance", sty.chatListItem__wl7M)}
-      />
-
-      <ChatListItem
-        className={classNames("__wab_instance", sty.chatListItem__xMFd6)}
-      />
-
-      <ChatListItem
-        className={classNames("__wab_instance", sty.chatListItem__hk7Mv)}
-      />
+      {(hasVariant(variants, "isLoading", "isLoading") ? true : true) ? (
+        <BeanEater1S200PxsvgIcon
+          data-plasmic-name={"svg"}
+          data-plasmic-override={overrides.svg}
+          className={classNames(projectcss.all, sty.svg, {
+            [sty.svgisLoading]: hasVariant(variants, "isLoading", "isLoading")
+          })}
+          role={"img"}
+        />
+      ) : null}
+      {(hasVariant(variants, "isLoading", "isLoading") ? true : true) ? (
+        <p.Stack
+          as={"div"}
+          data-plasmic-name={"chatListWrapper"}
+          data-plasmic-override={overrides.chatListWrapper}
+          hasGap={true}
+          className={classNames(projectcss.all, sty.chatListWrapper, {
+            [sty.chatListWrapperisLoading]: hasVariant(
+              variants,
+              "isLoading",
+              "isLoading"
+            )
+          })}
+        >
+          <ChatListItem
+            data-plasmic-name={"chatListItem"}
+            data-plasmic-override={overrides.chatListItem}
+            className={classNames("__wab_instance", sty.chatListItem)}
+          />
+        </p.Stack>
+      ) : null}
     </p.Stack>
   ) as React.ReactElement | null;
 }
 
 const PlasmicDescendants = {
-  root: ["root"]
+  root: ["root", "svg", "chatListWrapper", "chatListItem"],
+  svg: ["svg"],
+  chatListWrapper: ["chatListWrapper", "chatListItem"],
+  chatListItem: ["chatListItem"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
   typeof PlasmicDescendants[T][number];
 type NodeDefaultElementType = {
   root: "div";
+  svg: "svg";
+  chatListWrapper: "div";
+  chatListItem: typeof ChatListItem;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -182,6 +219,9 @@ export const PlasmicChatList = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
+    svg: makeNodeComponent("svg"),
+    chatListWrapper: makeNodeComponent("chatListWrapper"),
+    chatListItem: makeNodeComponent("chatListItem"),
 
     // Metadata about props expected for PlasmicChatList
     internalVariantProps: PlasmicChatList__VariantProps,
