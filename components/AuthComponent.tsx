@@ -24,8 +24,6 @@ function AuthComponent_(
     setLoading(true)
     setAuthError(null)
     try {
-
-      
       let authFunction = null
       if(props.isSignUpFlow) {
         authFunction = await supabaseClient.auth.signUp({email, password})

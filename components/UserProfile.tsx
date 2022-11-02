@@ -4,89 +4,58 @@ import {
   DefaultUserProfileProps
 } from "./plasmic/chat_app/PlasmicUserProfile";
 import { HTMLElementRefOf } from "@plasmicapp/react-web";
-import { useSupabaseClient, useUser } from "@supabase/auth-helpers-react";
+import { useUser } from "@supabase/auth-helpers-react";
 import { useEffect } from "react";
+import { useGetUserData, useUpdateUserData } from "../lib/supbase/user";
+import { useRouter } from "next/router";
 
 
 export interface UserProfileProps extends DefaultUserProfileProps {}
 
 function UserProfile_(props: UserProfileProps, ref: HTMLElementRefOf<"div">) {
 
+  const router = useRouter()
+
   const [firstName, setFirstName] = React.useState("")
   const [lastName, setLastName] = React.useState("")
-  const [data, setData] = React.useState()
-  const [loading, setLoading] = React.useState(true)
-  const supabaseClient = useSupabaseClient()
   const user = useUser()
 
+  console.log(firstName)
+
+  const {data: userData, isLoading: userDataIsLoading} = useGetUserData(user?.id)
+
+  const updateUserDataMutation = useUpdateUserData()
 
   useEffect(() => {
-    async function getUserData(userId: string) {
-      try {
-        const {data: userData, error} = await supabaseClient.from('profiles').select('*').eq("id", userId).single()    
-        setData(userData)
-        setFirstName(userData.first_name)
-        setLastName(userData.last_name)
-      } catch (err) {
-        console.log(err)
-      } finally {
-        setLoading(false)
-      }
-    }
-    // Only run query once user is logged in.
-    if(user) {
-      getUserData(user.id)
-    }
-  }, [supabaseClient, user])
- 
-  
+    setFirstName(userData?.first_name)
+    setLastName(userData?.last_name)
 
-  async function updateProfile({avatar_url, first_name, last_name}: any) {
-    try {
-      setLoading(true)
-      if (!user) throw new Error('No user')
-  
-      const updates = {
-        id: user.id,
-        first_name,
-        last_name,
-        avatar_url,
-        updated_at: new Date().toISOString(),
-      }
-      let { error } = await supabaseClient.from('profiles').upsert(updates)
-      if (error) throw error
-      alert('Profile updated!')
-    } catch (error) {
-      alert('Error updating the data!')
-      console.log(error)
-    } finally {
-      setLoading(false)
-    }}
+  },[userData])
 
   return(
     <PlasmicUserProfile
       root={{ ref }}
       {...props}
       uploadAvatar={{
-        url: data?.avatar_url,
+        url: userData?.avatar_url,
         onUpload: async(publicAvatarUrl: string) => {
           // update profile mutation to basically update the avatar_url on the backend.
-          await updateProfile({avatar_url: publicAvatarUrl})
+          await updateUserDataMutation.mutateAsync({avatar_url: publicAvatarUrl})
         },
-        loading: loading
+        loading: userDataIsLoading || updateUserDataMutation.isLoading
       }}
       firstNameInput={{
-        value: firstName,
+        value: firstName || '',
         onChange: (e) => setFirstName(e.target.value)
       }}
       lastNameInput={{
-        value: lastName,
+        value: lastName || '',
         onChange: (e) => setLastName(e.target.value)
       }}
       saveProfileButton={{
         onClick: async() => {
-          console.log("Save profile")
-          await updateProfile({ first_name: firstName, last_name: lastName })
+          await updateUserDataMutation.mutateAsync({ first_name: firstName, last_name: lastName })
+          router.replace('/')
         }
       }}
     />
