@@ -18,17 +18,20 @@ function SideBar_({user, ...props}: any, ref: HTMLElementRefOf<"div">) {
 
   const {data: userData} = useGetUserData(user?.id)
 
+  let username = user?.email
+  if(userData?.first_name || userData?.last_name){
+    username = `${userData?.first_name} ${userData?.last_name}`
+  }
+
+
   return (
     <PlasmicSideBar
       root={{ ref }}
       {...props}
-      username={(
-        userData?.first_name ? (
-          `${userData?.first_name || ''} ${userData?.last_name|| ''}`
-          ): user?.email
-      )}
+      username={username}
       userAvatar={{
-        prefixText: userData?.first_name[0] || user?.email[0].toUpperCase(),
+        prefixText: userData?.first_name && userData?.first_name[0].toUpperCase() ||
+        userData?.last_name && userData?.last_name[0].toUpperCase() || user?.email[0],
         isEmpty: !userData?.avatar_url,
         imageUrl: userData?.avatar_url,
         onClick: () => {
