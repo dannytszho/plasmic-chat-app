@@ -92,10 +92,10 @@ function Chat_({user, roomId, ...props}: any, ref: HTMLElementRefOf<"div">) {
       }}
       messageTextInput={{
         value: newMessage,
-        onChange: (e) => {
+        onChange: (e: any) => {
           setNewMessage(e.target.value)
         },
-        onKeyDown: async(e) => {
+        onKeyDown: async(e: any) => {
           if(e.key === 'Enter') {
             await createNewMessage()
           }

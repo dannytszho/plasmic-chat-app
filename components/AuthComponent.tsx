@@ -55,8 +55,8 @@ function AuthComponent_(
       isLoading={loading}
       emailInput={{
         value: email,
-        onChange: (e) => setEmail(e.target.value),
-        onKeyDown: async(e) => {
+        onChange: (e: any) => setEmail(e.target.value),
+        onKeyDown: async(e: any) => {
           if(e.key === 'Enter') {
             await handleLogIn()
           }
@@ -64,8 +64,8 @@ function AuthComponent_(
       }}
       passwordInput={{
         value: password,
-        onChange: (e) => setPassword(e.target.value),
-        onKeyDown: async(e) => {
+        onChange: (e: any) => setPassword(e.target.value),
+        onKeyDown: async(e: any) => {
           if(e.key === 'Enter') {
             await handleLogIn()
           }

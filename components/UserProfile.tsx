@@ -41,11 +41,11 @@ function UserProfile_({user, props}: any, ref: HTMLElementRefOf<"div">) {
       }}
       firstNameInput={{
         value: firstName || '',
-        onChange: (e) => setFirstName(e.target.value)
+        onChange: (e:any) => setFirstName(e.target.value)
       }}
       lastNameInput={{
         value: lastName || '',
-        onChange: (e) => setLastName(e.target.value)
+        onChange: (e:any) => setLastName(e.target.value)
       }}
       saveProfileButton={{
         onClick: async() => {
