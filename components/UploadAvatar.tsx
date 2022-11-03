@@ -62,7 +62,7 @@ function UploadAvatar_({onUpload, url, loading, ...props}: any, ref: HTMLElement
   return (
     <PlasmicUploadAvatar
       root={{
-        wrapChildren: (children) => {
+        wrapChildren: (children: any) => {
           return (
             <label htmlFor="userProfileAvatar">
               {children}

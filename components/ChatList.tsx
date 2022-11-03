@@ -19,7 +19,7 @@ function ChatList_(props: ChatListProps, ref: HTMLElementRefOf<"div">) {
     <PlasmicChatList
       root={{ ref }}
       chatListWrapper={{
-         wrapChildren: (children) => chatRooms?.map(({room_name, id}) => (
+         wrapChildren: (children: any) => chatRooms?.map(({room_name, id}) => (
           <ChatListItem
             key={id}
             roomName={room_name}
