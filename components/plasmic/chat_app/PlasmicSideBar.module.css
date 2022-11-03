@@ -23,6 +23,11 @@
 .root > :global(.__wab_flex-container) > :global(.__wab_slot) > picture > img {
   margin-top: 8px;
 }
+@media (min-width: 0px) and (max-width: 768px) {
+  .root {
+    overflow: auto;
+  }
+}
 .headerProfile {
   flex-direction: row;
   display: flex;
@@ -52,10 +57,26 @@
   > img {
   margin-left: 16px;
 }
+.freeBox__jYfVw {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+  padding: 8px;
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .freeBox__jYfVw {
+    display: flex;
+  }
+}
 .freeBox__vGFkc {
   flex-direction: row;
   display: flex;
-  position: relative;
   width: 100%;
   height: auto;
   max-width: 100%;
@@ -83,6 +104,11 @@
 .userAvatar:global(.__wab_instance) {
   flex-shrink: 0;
 }
+@media (min-width: 0px) and (max-width: 768px) {
+  .userAvatar:global(.__wab_instance) {
+    flex-shrink: 0;
+  }
+}
 .freeBox__gwct9 {
   position: relative;
   width: 100%;
@@ -91,6 +117,11 @@
   display: flex;
   flex-direction: row;
   min-width: 0;
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .freeBox__gwct9 {
+    display: none;
+  }
 }
 .logoutIcon {
   position: relative;

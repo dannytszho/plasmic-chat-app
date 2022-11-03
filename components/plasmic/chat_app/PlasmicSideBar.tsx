@@ -38,6 +38,8 @@ import Avatar from "../../Avatar"; // plasmic-import: kv2sB2fQdM/component
 import TextInput from "../../TextInput"; // plasmic-import: 9ljEDf5OMQM/component
 import ChatList from "../../ChatList"; // plasmic-import: csngSC__Aa/component
 
+import { useScreenVariants as useScreenVariantsn4SC0SB8S1Vh8 } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: N4sC0sB8s1vh8/globalVariant
+
 import "@plasmicapp/react-web/lib/plasmic.css";
 
 import projectcss from "./plasmic_chat_app.module.css"; // plasmic-import: tuYYL4LS2Mqra35JfVEDDQ/projectcss
@@ -99,6 +101,10 @@ function PlasmicSideBar__RenderFunc(props: {
 
   const currentUser = p.useCurrentUser?.() || {};
 
+  const globalVariants = ensureGlobalVariants({
+    screen: useScreenVariantsn4SC0SB8S1Vh8()
+  });
+
   return (
     <p.Stack
       as={"div"}
@@ -123,34 +129,52 @@ function PlasmicSideBar__RenderFunc(props: {
         hasGap={true}
         className={classNames(projectcss.all, sty.headerProfile)}
       >
-        {true ? (
-          <p.Stack
-            as={"div"}
-            hasGap={true}
-            className={classNames(projectcss.all, sty.freeBox__vGFkc)}
-          >
-            <Avatar
-              data-plasmic-name={"userAvatar"}
-              data-plasmic-override={overrides.userAvatar}
-              className={classNames("__wab_instance", sty.userAvatar)}
-              isEmpty={true}
-              size={"_60" as const}
-            />
+        {(hasVariant(globalVariants, "screen", "mobileOnly") ? true : true) ? (
+          <div className={classNames(projectcss.all, sty.freeBox__jYfVw)}>
+            {true ? (
+              <p.Stack
+                as={"div"}
+                hasGap={true}
+                className={classNames(projectcss.all, sty.freeBox__vGFkc)}
+              >
+                <Avatar
+                  data-plasmic-name={"userAvatar"}
+                  data-plasmic-override={overrides.userAvatar}
+                  className={classNames("__wab_instance", sty.userAvatar)}
+                  isEmpty={true}
+                  size={"_60" as const}
+                />
 
-            <div className={classNames(projectcss.all, sty.freeBox__gwct9)}>
-              {p.renderPlasmicSlot({
-                defaultContents: "Enter some text",
-                value: args.username
-              })}
-            </div>
+                {(
+                  hasVariant(globalVariants, "screen", "mobileOnly")
+                    ? true
+                    : true
+                ) ? (
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__gwct9)}
+                  >
+                    {(
+                      hasVariant(globalVariants, "screen", "mobileOnly")
+                        ? true
+                        : true
+                    )
+                      ? p.renderPlasmicSlot({
+                          defaultContents: "Enter some text",
+                          value: args.username
+                        })
+                      : null}
+                  </div>
+                ) : null}
 
-            <LogoutSvgrepoComsvgIcon
-              data-plasmic-name={"logoutIcon"}
-              data-plasmic-override={overrides.logoutIcon}
-              className={classNames(projectcss.all, sty.logoutIcon)}
-              role={"img"}
-            />
-          </p.Stack>
+                <LogoutSvgrepoComsvgIcon
+                  data-plasmic-name={"logoutIcon"}
+                  data-plasmic-override={overrides.logoutIcon}
+                  className={classNames(projectcss.all, sty.logoutIcon)}
+                  role={"img"}
+                />
+              </p.Stack>
+            ) : null}
+          </div>
         ) : null}
       </p.Stack>
 

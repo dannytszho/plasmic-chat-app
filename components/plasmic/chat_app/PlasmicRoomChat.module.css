@@ -10,6 +10,12 @@
   min-width: 0;
   min-height: 0;
 }
+@media (min-width: 0px) and (max-width: 768px) {
+  .root {
+    justify-content: flex-start;
+    align-items: center;
+  }
+}
 .freeBox {
   display: flex;
   position: relative;
@@ -24,10 +30,21 @@
   flex-shrink: 0;
   padding: 8px;
 }
+@media (min-width: 0px) and (max-width: 768px) {
+  .freeBox {
+    height: auto;
+    display: flex;
+    padding: 0px;
+    margin: -5px;
+  }
+}
 .layout:global(.__wab_instance) {
   max-width: 100%;
   position: relative;
 }
-.chat__s41Un:global(.__wab_instance) {
+.chat___695Us:global(.__wab_instance) {
   position: relative;
+  width: 100%;
+  max-width: 677px;
+  min-width: 0;
 }

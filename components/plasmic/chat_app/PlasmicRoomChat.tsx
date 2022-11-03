@@ -37,6 +37,8 @@ import {
 import Layout from "../../Layout"; // plasmic-import: 3oTZPmOQXw/component
 import Chat from "../../Chat"; // plasmic-import: 1KykzanB-I/component
 
+import { useScreenVariants as useScreenVariantsn4SC0SB8S1Vh8 } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: N4sC0sB8s1vh8/globalVariant
+
 import "@plasmicapp/react-web/lib/plasmic.css";
 
 import projectcss from "./plasmic_chat_app.module.css"; // plasmic-import: tuYYL4LS2Mqra35JfVEDDQ/projectcss
@@ -78,6 +80,10 @@ function PlasmicRoomChat__RenderFunc(props: {
 
   const currentUser = p.useCurrentUser?.() || {};
 
+  const globalVariants = ensureGlobalVariants({
+    screen: useScreenVariantsn4SC0SB8S1Vh8()
+  });
+
   return (
     <React.Fragment>
       <Head></Head>
@@ -89,32 +95,38 @@ function PlasmicRoomChat__RenderFunc(props: {
       `}</style>
 
       <div className={projectcss.plasmic_page_wrapper}>
-        <div
-          data-plasmic-name={"root"}
-          data-plasmic-override={overrides.root}
-          data-plasmic-root={true}
-          data-plasmic-for-node={forNode}
-          className={classNames(
-            projectcss.all,
-            projectcss.root_reset,
-            projectcss.plasmic_default_styles,
-            projectcss.plasmic_mixins,
-            projectcss.plasmic_tokens,
-            sty.root
-          )}
-        >
+        {true ? (
           <div
-            data-plasmic-name={"freeBox"}
-            data-plasmic-override={overrides.freeBox}
-            className={classNames(projectcss.all, sty.freeBox)}
+            data-plasmic-name={"root"}
+            data-plasmic-override={overrides.root}
+            data-plasmic-root={true}
+            data-plasmic-for-node={forNode}
+            className={classNames(
+              projectcss.all,
+              projectcss.root_reset,
+              projectcss.plasmic_default_styles,
+              projectcss.plasmic_mixins,
+              projectcss.plasmic_tokens,
+              sty.root
+            )}
           >
-            <Layout
-              data-plasmic-name={"layout"}
-              data-plasmic-override={overrides.layout}
-              className={classNames("__wab_instance", sty.layout)}
-            />
+            {(
+              hasVariant(globalVariants, "screen", "mobileOnly") ? true : true
+            ) ? (
+              <div
+                data-plasmic-name={"freeBox"}
+                data-plasmic-override={overrides.freeBox}
+                className={classNames(projectcss.all, sty.freeBox)}
+              >
+                <Layout
+                  data-plasmic-name={"layout"}
+                  data-plasmic-override={overrides.layout}
+                  className={classNames("__wab_instance", sty.layout)}
+                />
+              </div>
+            ) : null}
           </div>
-        </div>
+        ) : null}
       </div>
     </React.Fragment>
   ) as React.ReactElement | null;
