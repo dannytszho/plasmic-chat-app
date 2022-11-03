@@ -36,6 +36,8 @@ import {
 } from "@plasmicapp/react-web";
 import Avatar from "../../Avatar"; // plasmic-import: kv2sB2fQdM/component
 
+import { useScreenVariants as useScreenVariantsn4SC0SB8S1Vh8 } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: N4sC0sB8s1vh8/globalVariant
+
 import "@plasmicapp/react-web/lib/plasmic.css";
 
 import projectcss from "./plasmic_chat_app.module.css"; // plasmic-import: tuYYL4LS2Mqra35JfVEDDQ/projectcss
@@ -82,6 +84,10 @@ function PlasmicChatListItem__RenderFunc(props: {
 
   const currentUser = p.useCurrentUser?.() || {};
 
+  const globalVariants = ensureGlobalVariants({
+    screen: useScreenVariantsn4SC0SB8S1Vh8()
+  });
+
   return (
     <p.Stack
       as={"div"}
@@ -107,18 +113,19 @@ function PlasmicChatListItem__RenderFunc(props: {
           size={"_60" as const}
         />
       ) : null}
-
-      <div
-        data-plasmic-name={"freeBox"}
-        data-plasmic-override={overrides.freeBox}
-        className={classNames(projectcss.all, sty.freeBox)}
-      >
-        {p.renderPlasmicSlot({
-          defaultContents: "Enter some text",
-          value: args.roomName,
-          className: classNames(sty.slotTargetRoomName)
-        })}
-      </div>
+      {(hasVariant(globalVariants, "screen", "mobileOnly") ? true : true) ? (
+        <div
+          data-plasmic-name={"freeBox"}
+          data-plasmic-override={overrides.freeBox}
+          className={classNames(projectcss.all, sty.freeBox)}
+        >
+          {p.renderPlasmicSlot({
+            defaultContents: "Enter some text",
+            value: args.roomName,
+            className: classNames(sty.slotTargetRoomName)
+          })}
+        </div>
+      ) : null}
     </p.Stack>
   ) as React.ReactElement | null;
 }

@@ -37,6 +37,11 @@
   flex-direction: row;
   min-width: 0;
 }
+@media (min-width: 0px) and (max-width: 768px) {
+  .freeBox {
+    display: none;
+  }
+}
 .slotTargetRoomName {
   font-size: 18px;
   font-weight: 600;
